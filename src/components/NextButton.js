@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NextButton = ({ dispatch, answer=null  }) => {
+const NextButton = ({ dispatch, answer  }) => {
     if(answer == null) return
   return (
     <button className='btn btn-ui' onClick={() => dispatch({type:"nextQuestion"})}>NextButton</button>

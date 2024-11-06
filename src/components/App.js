@@ -45,7 +45,8 @@ function reducer (state, action) {
     case "nextQuestion":
       return {
         ...state, 
-        index: state.index++
+        index: state.index++,
+        answer:null
       };
     default:
       throw new Error("Action is unknown!");
@@ -73,7 +74,7 @@ function App() {
         { status === 'active' && (
          <>
            <Question dispatch={dispatch} answer={answer} question={questions[index]}/>
-           <NextButton dispatch={dispatch} answer={questions[index].question}/>
+           <NextButton dispatch={dispatch} answer={answer}/>
          </>
           ) }
         
