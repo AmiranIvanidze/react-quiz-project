@@ -43,7 +43,7 @@ function reducer (state, action) {
       return {
         ...state, 
         answer: action.payload,
-        points: action.payload == question.correctOption ? question.points  : state.points
+        points: action.payload == question.correctOption ? state.points + question.points  : state.points
       };
     case "nextQuestion":
       return {
