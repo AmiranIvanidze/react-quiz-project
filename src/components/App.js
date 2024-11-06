@@ -57,6 +57,14 @@ function reducer (state, action) {
         status: "finished",
         highscore: state.points > state.highscore ? state.points : state.highscore
       };
+    case "restart":
+      return {
+        ...initialState, 
+        highscore: state.highscore,
+
+        questions: state.questions,
+        status: 'ready'
+      };
     default:
       throw new Error("Action is unknown!");
   }
@@ -91,7 +99,11 @@ function App() {
        </Main>
       </div>
       {status === 'finished' && (
-          <FinishedScreen points={points} maxPossiblePoints={maxPossiblePoints} highscore={highscore}/>
+         <>
+           <FinishedScreen points={points} maxPossiblePoints={maxPossiblePoints} highscore={highscore}/>
+           <button className='btn btn-ui' onClick={() => dispatch({type:"restart"})}>Restart</button>
+         </>
+
         )}
     </>
   );
